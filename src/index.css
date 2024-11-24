@@ -11,6 +11,15 @@ body {
   font-family: "General Sans", sans-serif;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  -ms-overflow-style: none; 
+  scrollbar-width: none;
+}
+
 @layer base {
   @font-face {
     font-family: "circular-web";

@@ -3,20 +3,22 @@ import { SiEpicgames } from "react-icons/si";
 import { motion } from "framer-motion";
 
 const socialLinks = [
-  { href: "https://discord.com", icon: <FaDiscord />, label: "Join our Metaverse Community" },
-  { href: "https://twitter.com", icon: <FaTwitter />, label: "Follow Metaverse Updates" },
-  { href: "https://youtube.com", icon: <FaYoutube />, label: "Watch Virtual Experiences" },
-  { href: "https://twitch.tv", icon: <FaTwitch />, label: "Live Virtual Events" },
+  { href: "https://discord.com", icon: <FaDiscord />, label: "Join our Gaming Community" },
+  { href: "https://twitter.com", icon: <FaTwitter />, label: "Follow Latest Updates" },
+  { href: "https://youtube.com", icon: <FaYoutube />, label: "Watch Game Content" },
+  { href: "https://twitch.tv", icon: <FaTwitch />, label: "Live Streams" },
 ];
 
 const Footer = () => {
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
+      y: 0,
       transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
+        staggerChildren: 0.15,
+        delayChildren: 0.3,
+        duration: 0.6,
       },
     },
   };
@@ -28,18 +30,20 @@ const Footer = () => {
       opacity: 1,
       transition: {
         type: "spring",
-        stiffness: 100,
+        stiffness: 120,
+        damping: 10,
       },
     },
   };
 
   const socialIconVariants = {
     hover: {
-      scale: 1.1,
-      rotate: 5,
+      scale: 1.15,
+      rotate: [0, -10, 10, 0],
       transition: {
         type: "spring",
-        stiffness: 400,
+        stiffness: 500,
+        damping: 10,
       },
     },
   };
@@ -48,14 +52,15 @@ const Footer = () => {
     <motion.footer
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="relative w-full overflow-hidden bg-gradient-to-br from-slate-900 via-blue-950 to-indigo-950 py-8 text-slate-100 sm:py-12 lg:py-16"
+      className="relative w-full overflow-hidden bg-gradient-to-br from-violet-950 via-indigo-950 to-slate-900 py-8 text-slate-100 sm:py-12 lg:py-16"
     >
-      <div className="absolute inset-0 bg-[url('/images/grid.svg')] opacity-10"></div>
+      <div className="absolute inset-0 bg-[url('/img/grid.svg')] opacity-10"></div>
       
       <motion.div
         variants={containerVariants}
         initial="hidden"
-        animate="visible"
+        whileInView="visible"
+        viewport={{ once: true }}
         className="container relative mx-auto px-4 sm:px-6 lg:px-8"
       >
         <div className="mb-8 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:mb-12 lg:grid-cols-3 lg:gap-12">
@@ -64,36 +69,36 @@ const Footer = () => {
             whileHover={{ y: -5 }}
             className="transform transition-all duration-300"
           >
-            <h3 className="mb-4 font-bold uppercase tracking-widest text-cyan-300 sm:mb-6">Explore Metaverse</h3>
+            <h3 className="mb-4 font-bold uppercase tracking-widest text-violet-300 sm:mb-6">Explore Zentry</h3>
             <ul className="space-y-3 sm:space-y-4">
               <motion.li whileHover={{ x: 5 }}>
-                <a href="#virtual-worlds" className="group flex items-center gap-2 text-sm sm:text-base transition-colors duration-300 hover:text-cyan-300">
+                <a href="#game-worlds" className="group flex items-center gap-2 text-sm sm:text-base transition-colors duration-300 hover:text-violet-300">
                   <motion.span
                     initial={{ width: "1rem" }}
-                    whileHover={{ width: "1.5rem" }}
-                    className="h-[1px] bg-slate-600 transition-all duration-300 group-hover:bg-cyan-400"
+                    whileHover={{ width: "2rem" }}
+                    className="h-[1px] bg-slate-600 transition-all duration-300 group-hover:bg-violet-400"
                   ></motion.span>
-                  Virtual Worlds
+                  Game Worlds
                 </a>
               </motion.li>
               <motion.li whileHover={{ x: 5 }}>
-                <a href="#digital-assets" className="group flex items-center gap-2 text-sm sm:text-base transition-colors duration-300 hover:text-cyan-300">
+                <a href="#characters" className="group flex items-center gap-2 text-sm sm:text-base transition-colors duration-300 hover:text-violet-300">
                   <motion.span
                     initial={{ width: "1rem" }}
-                    whileHover={{ width: "1.5rem" }}
-                    className="h-[1px] bg-slate-600 transition-all duration-300 group-hover:bg-cyan-400"
+                    whileHover={{ width: "2rem" }}
+                    className="h-[1px] bg-slate-600 transition-all duration-300 group-hover:bg-violet-400"
                   ></motion.span>
-                  Digital Assets
+                  Characters
                 </a>
               </motion.li>
               <motion.li whileHover={{ x: 5 }}>
-                <a href="#meta-token" className="group flex items-center gap-2 text-sm sm:text-base transition-colors duration-300 hover:text-cyan-300">
+                <a href="#marketplace" className="group flex items-center gap-2 text-sm sm:text-base transition-colors duration-300 hover:text-violet-300">
                   <motion.span
                     initial={{ width: "1rem" }}
-                    whileHover={{ width: "1.5rem" }}
-                    className="h-[1px] bg-slate-600 transition-all duration-300 group-hover:bg-cyan-400"
+                    whileHover={{ width: "2rem" }}
+                    className="h-[1px] bg-slate-600 transition-all duration-300 group-hover:bg-violet-400"
                   ></motion.span>
-                  Meta Tokens
+                  Marketplace
                 </a>
               </motion.li>
             </ul>
@@ -104,7 +109,7 @@ const Footer = () => {
             whileHover={{ y: -5 }}
             className="transform transition-all duration-300"
           >
-            <h3 className="mb-4 font-bold uppercase tracking-widest text-cyan-300 sm:mb-6">Virtual Community</h3>
+            <h3 className="mb-4 font-bold uppercase tracking-widest text-violet-300 sm:mb-6">Community</h3>
             <div className="flex flex-wrap gap-4 sm:gap-6">
               {socialLinks.map((link, index) => (
                 <motion.a
@@ -120,9 +125,9 @@ const Footer = () => {
                   <motion.span
                     initial={{ opacity: 0, scale: 0.8 }}
                     whileHover={{ opacity: 1, scale: 1 }}
-                    className="absolute -inset-2 -z-10 rounded-lg bg-cyan-500/20 blur"
+                    className="absolute -inset-2 -z-10 rounded-lg bg-violet-500/20 blur-lg"
                   ></motion.span>
-                  <span className="text-xl sm:text-2xl transition-all duration-300 group-hover:text-cyan-300">
+                  <span className="text-xl sm:text-2xl transition-all duration-300 group-hover:text-violet-300">
                     {link.icon}
                   </span>
                 </motion.a>
@@ -135,36 +140,36 @@ const Footer = () => {
             whileHover={{ y: -5 }}
             className="transform transition-all duration-300"
           >
-            <h3 className="mb-4 font-bold uppercase tracking-widest text-cyan-300 sm:mb-6">Meta Resources</h3>
+            <h3 className="mb-4 font-bold uppercase tracking-widest text-violet-300 sm:mb-6">Resources</h3>
             <ul className="space-y-3 sm:space-y-4">
               <motion.li whileHover={{ x: 5 }}>
-                <a href="#metaverse-guide" className="group flex items-center gap-2 text-sm sm:text-base transition-colors duration-300 hover:text-cyan-300">
+                <a href="#game-guide" className="group flex items-center gap-2 text-sm sm:text-base transition-colors duration-300 hover:text-violet-300">
                   <motion.span
                     initial={{ width: "1rem" }}
-                    whileHover={{ width: "1.5rem" }}
-                    className="h-[1px] bg-slate-600 transition-all duration-300 group-hover:bg-cyan-400"
+                    whileHover={{ width: "2rem" }}
+                    className="h-[1px] bg-slate-600 transition-all duration-300 group-hover:bg-violet-400"
                   ></motion.span>
-                  Metaverse Guide
+                  Game Guide
                 </a>
               </motion.li>
               <motion.li whileHover={{ x: 5 }}>
-                <a href="#virtual-docs" className="group flex items-center gap-2 text-sm sm:text-base transition-colors duration-300 hover:text-cyan-300">
+                <a href="#documentation" className="group flex items-center gap-2 text-sm sm:text-base transition-colors duration-300 hover:text-violet-300">
                   <motion.span
                     initial={{ width: "1rem" }}
-                    whileHover={{ width: "1.5rem" }}
-                    className="h-[1px] bg-slate-600 transition-all duration-300 group-hover:bg-cyan-400"
+                    whileHover={{ width: "2rem" }}
+                    className="h-[1px] bg-slate-600 transition-all duration-300 group-hover:bg-violet-400"
                   ></motion.span>
-                  Virtual Documentation
+                  Documentation
                 </a>
               </motion.li>
               <motion.li whileHover={{ x: 5 }}>
-                <a href="#meta-policy" className="group flex items-center gap-2 text-sm sm:text-base transition-colors duration-300 hover:text-cyan-300">
+                <a href="#support" className="group flex items-center gap-2 text-sm sm:text-base transition-colors duration-300 hover:text-violet-300">
                   <motion.span
                     initial={{ width: "1rem" }}
-                    whileHover={{ width: "1.5rem" }}
-                    className="h-[1px] bg-slate-600 transition-all duration-300 group-hover:bg-cyan-400"
+                    whileHover={{ width: "2rem" }}
+                    className="h-[1px] bg-slate-600 transition-all duration-300 group-hover:bg-violet-400"
                   ></motion.span>
-                  Metaverse Policy
+                  Support
                 </a>
               </motion.li>
             </ul>
@@ -173,22 +178,22 @@ const Footer = () => {
 
         <motion.div
           variants={itemVariants}
-          className="flex flex-col items-center justify-between gap-6 border-t border-slate-700 pt-6 text-center sm:pt-8 lg:flex-row lg:text-left"
+          className="flex flex-col items-center justify-between gap-6 border-t border-slate-800 pt-6 text-center sm:pt-8 lg:flex-row lg:text-left"
         >
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
-            className="text-xs sm:text-sm text-cyan-200"
+            className="text-xs sm:text-sm text-violet-200"
           >
-            ©2024 Infinity Metaverse. Pioneering the Future of Digital Reality.
+            ©2024 Zentry Games. Crafting Epic Gaming Experiences.
           </motion.p>
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="group flex items-center rounded-full bg-cyan-900/30 px-4 py-2 sm:px-6 transition-all duration-300 hover:bg-cyan-800/40"
+            className="group flex items-center rounded-full bg-violet-900/30 px-4 py-2 sm:px-6 transition-all duration-300 hover:bg-violet-800/40"
           >
-            <SiEpicgames className="mr-2 sm:mr-3 text-lg sm:text-xl text-cyan-300" />
-            <span className="text-xs sm:text-sm font-medium text-cyan-200">Access the Virtual Universe</span>
+            <SiEpicgames className="mr-2 sm:mr-3 text-lg sm:text-xl text-violet-300" />
+            <span className="text-xs sm:text-sm font-medium text-violet-200">Play Now</span>
           </motion.div>
         </motion.div>
       </motion.div>
